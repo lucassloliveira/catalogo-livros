@@ -47,7 +47,7 @@ function App() {
 
   async function handleUpdateBook(id: string, book: BookFormData) {
     try {
-      const updated = await updateBook(id, book);
+      await updateBook(id, book);
       setBooks(prev => prev.map(b => b._id === id ? { ...b, ...book } : b));
     } catch (err) {
       setError('Erro ao atualizar livro.')

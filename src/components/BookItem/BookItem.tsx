@@ -8,11 +8,11 @@ interface BookItemProps {
 
 export function BookItem({ book, onDelete, onUpdate }: BookItemProps) {
     function handleToggleStatus() {
-        const newSatus = book.status === 'Lido' ? 'Não lido' : 'Lido';
+        const newStatus = book.status === 'Lido' ? 'Não lido' : 'Lido';
         onUpdate(book._id, {
             title: book.title,
             author: book.author,
-            status: newSatus
+            status: newStatus
         });
     }
 
