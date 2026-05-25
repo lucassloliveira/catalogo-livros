@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Book, BookFormData } from '../types/book';
 
-const API_URL = 'https://crudcrud.com/api/0ec67312278b4f32ada2ec889e699afa/livros';
+const API_URL = 'https://crudcrud.com/api/4c14c690a96d4402b270eec255dc2faf/livros';
 
 export async function getBooks(): Promise<Book[]> {
     const response = await axios.get<Book[]>(API_URL)
