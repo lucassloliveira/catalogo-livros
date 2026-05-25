@@ -74,6 +74,9 @@ const API_URL = 'https://crudcrud.com/api/SEU_ENDPOINT/livros'
 ```bash
 # Rode o projeto
 npm run dev
+
+# Gerar build de produção
+npm run build
 ```
 
 Acesse `http://localhost:5173` no navegador.
