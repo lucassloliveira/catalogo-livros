@@ -10,16 +10,12 @@ function App() {
   const [error,setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchBooks()
-  }, []);
-
-  async function fetchBooks() {
+    async function fetchBooks() {
     try {
       // sucesso → setLoading(false) roda
-      setLoading(true);
       const data = await getBooks();
       setBooks(data);
-    } catch (err) {
+    } catch {
       // erro → setLoading(false) também roda
       setError('Erro ao carregar livros.');
     } finally {
@@ -27,11 +23,14 @@ function App() {
     }
   }
 
+    fetchBooks()
+  }, []);
+
   async function handleAddBook(book: BookFormData) {
     try {
       const newBook = await createBook(book);
       setBooks(prev => [...prev, newBook]);
-    } catch (err) {
+    } catch {
       setError('Erro ao adicionar livro.');
     }
   }
@@ -40,7 +39,7 @@ function App() {
     try {
       await deleteBook(id);
       setBooks(prev => prev.filter(book => book._id !== id));
-    } catch (err) {
+    } catch {
       setError('Erro ao deletar o livro.');
     }
   }
@@ -49,7 +48,7 @@ function App() {
     try {
       await updateBook(id, book);
       setBooks(prev => prev.map(b => b._id === id ? { ...b, ...book } : b));
-    } catch (err) {
+    } catch {
       setError('Erro ao atualizar livro.')
     }
   }
